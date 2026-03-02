@@ -1,0 +1,664 @@
+/* Tomato Food Delivery - Main Stylesheet */
+
+/* CSS Variables */
+:root {
+    /* Premium Tomato Palette */
+    --primary-color: #E23744; /* Iconic Zomato Red */
+    --primary-gradient: linear-gradient(90deg, #E23744 0%, #FF6B6B 100%);
+    --primary-dark: #C91D2B;
+    
+    /* Sophisticated Greyscale */
+    --secondary-color: #1C1C1C; /* Deep Black */
+    --text-primary: #333333; /* Charcoal */
+    --text-secondary: #696969; /* Medium Grey */
+    --text-light: #9C9C9C;
+    
+    /* Backgrounds */
+    --bg-light: #F4F4F4; /* Soft warm grey */
+    --bg-white: #FFFFFF;
+    
+    /* UI Elements */
+    --border-color: #E8E8E8;
+    --success-color: #24963F; /* Fresh Green */
+    --rating-color: #24963F; /* Standard Rating Green */
+    
+    /* Modern Shadows */
+    --shadow-sm: 0 2px 8px rgba(28, 28, 28, 0.08); /* More subtle */
+    --shadow-md: 0 8px 24px rgba(28, 28, 28, 0.12);
+    --shadow-lg: 0 16px 40px rgba(226, 55, 68, 0.15); /* Reddish tint shadow */
+
+    /* Radius */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    /* More modern font stack */
+    color: var(--text-primary);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-family: inherit;
+}
+
+input,
+textarea,
+select {
+    font-family: inherit;
+    outline: none;
+}
+
+/* Container */
+.container {
+    max-width: 1280px;
+    /* Specific width for modern screens */
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Header Styles */
+.header {
+    background-color: rgba(255, 255, 255, 0.95);
+    /* Slight transparency */
+    backdrop-filter: blur(10px);
+    /* Glassmorphism */
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+}
+
+.logo {
+    font-size: 36px;
+    font-weight: 800;
+    /* Extra bold */
+    background: var(--primary-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-style: italic;
+    letter-spacing: -1px;
+}
+
+.location-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    /* Pill shape */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.location-selector:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 8px rgba(255, 62, 77, 0.15);
+}
+
+.location-icon {
+    color: var(--primary-color);
+    font-size: 20px;
+}
+
+.location-text {
+    font-size: 15px;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.search-bar {
+    flex: 1;
+    max-width: 500px;
+    margin: 0 40px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    border-radius: var(--radius-lg);
+}
+
+.search-input {
+    width: 100%;
+    padding: 14px 50px 14px 24px;
+    border: 1px solid transparent;
+    background: white;
+    border-radius: var(--radius-lg);
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(255, 62, 77, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.btn {
+    padding: 12px 28px;
+    /* Larger tap targets */
+    border-radius: var(--radius-lg);
+    /* Pill shape buttons */
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.3px;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.btn-outline:hover {
+    border-color: var(--text-primary);
+    background-color: var(--text-primary);
+    color: white;
+    /* Inverted style for impact */
+}
+
+.btn-primary {
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 14px rgba(255, 62, 77, 0.3);
+    /* Colored shadow */
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 62, 77, 0.4);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    position: relative;
+    padding: 6px 12px;
+    border-radius: var(--radius-lg);
+    transition: background 0.2s;
+}
+
+.user-profile:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e0e0e0, #f5f5f5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: bold;
+    overflow: hidden;
+    border: 2px solid white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0;
+    text-align: center;
+    color: white;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.hero-subtitle {
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.hero-search {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    gap: 15px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+}
+
+/* Category Cards */
+.categories {
+    padding: 60px 0;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.category-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.category-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.category-title {
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    background-color: white;
+}
+
+/* Restaurant Cards */
+.restaurants {
+    padding: 60px 0;
+    background-color: var(--bg-light);
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.restaurant-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.restaurant-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.restaurant-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.restaurant-info {
+    padding: 20px;
+}
+
+.restaurant-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 10px;
+}
+
+.restaurant-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: var(--success-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.rating-star {
+    font-size: 12px;
+}
+
+.restaurant-cuisine {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.restaurant-locality {
+    color: var(--text-light);
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.restaurant-cost {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* Menu Items */
+.menu-section {
+    padding: 40px 0;
+}
+
+.menu-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.menu-item-info {
+    flex: 1;
+}
+
+.menu-item-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.veg-indicator {
+    width: 16px;
+    height: 16px;
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.veg-indicator.veg {
+    border-color: var(--success-color);
+}
+
+.veg-indicator.non-veg {
+    border-color: var(--primary-color);
+}
+
+.veg-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.veg-indicator.veg .veg-dot {
+    background-color: var(--success-color);
+}
+
+.veg-indicator.non-veg .veg-dot {
+    background-color: var(--primary-color);
+}
+
+.menu-item-name {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.menu-item-description {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.menu-item-price {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.menu-item-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-left: 20px;
+}
+
+.add-to-cart-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Cart */
+.cart-container {
+    padding: 40px 0;
+}
+
+.cart-items {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-sm);
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    background-color: white;
+    color: var(--primary-color);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.quantity-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.cart-summary {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: var(--shadow-sm);
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.summary-total {
+    font-size: 20px;
+    font-weight: 700;
+    border-top: 2px solid var(--border-color);
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 40px 0 20px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #CCC;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #999;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-content {
+        flex-wrap: wrap;
+    }
+
+    .search-bar {
+        order: 3;
+        width: 100%;
+        margin: 15px 0 0 0;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 20px;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .restaurant-grid {
+        grid-template-columns: 1fr;
+    }
+}
